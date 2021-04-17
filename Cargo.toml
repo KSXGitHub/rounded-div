@@ -1,8 +1,26 @@
 [package]
 name = "rounded-div"
+description = "Get rounded result of an integer division"
 version = "0.0.0"
 authors = ["khai96_ <hvksmr1996@gmail.com>"]
 edition = "2018"
+readme = "README.md"
+license = "MIT"
+documentation = "https://docs.rs/rounded-div"
+repository = "https://github.com/KSXGitHub/rounded-div"
+categories = []
+keywords = [
+  "round",
+  "integer",
+  "divide",
+]
+include = [
+  "/cli",
+  "/src",
+  "/Cargo.toml",
+  "/README.md",
+  "/LICENSE.md",
+]
 
 [lib]
 name = "rounded_div"
