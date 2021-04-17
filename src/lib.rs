@@ -1,3 +1,5 @@
+#![no_std]
+
 /// Get rounded result of an integer division.
 pub trait RoundedDiv<Rhs = Self> {
     /// Type of the rounded result.

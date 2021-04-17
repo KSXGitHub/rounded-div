@@ -8,7 +8,7 @@ readme = "README.md"
 license = "MIT"
 documentation = "https://docs.rs/rounded-div"
 repository = "https://github.com/KSXGitHub/rounded-div"
-categories = []
+categories = ["no-std"]
 keywords = [
   "round",
   "integer",
