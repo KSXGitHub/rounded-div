@@ -8,28 +8,28 @@ use structopt::StructOpt;
     rename_all = "kebab-case"
 )]
 pub enum Args {
-    #[structopt(about = "Perform rounded division on two u8 numbers")]
+    #[structopt(about = "Perform rounded division on two unsigned 8-bit integers")]
     U8 { dividend: u8, divisor: u8 },
-    #[structopt(about = "Perform rounded division on two u16 numbers")]
+    #[structopt(about = "Perform rounded division on two unsigned 16-bit integers")]
     U16 { dividend: u16, divisor: u16 },
-    #[structopt(about = "Perform rounded division on two u32 numbers")]
+    #[structopt(about = "Perform rounded division on two unsigned 32-bit integers")]
     U32 { dividend: u32, divisor: u32 },
-    #[structopt(about = "Perform rounded division on two u64 numbers")]
+    #[structopt(about = "Perform rounded division on two unsigned 64-bit integers")]
     U64 { dividend: u64, divisor: u64 },
-    #[structopt(about = "Perform rounded division on two u128 numbers")]
+    #[structopt(about = "Perform rounded division on two unsigned 128-bit integers")]
     U128 { dividend: u128, divisor: u128 },
-    #[structopt(about = "Perform rounded division on two usize numbers")]
+    #[structopt(about = "Perform rounded division on two pointer-sized unsigned integers")]
     Usize { dividend: usize, divisor: usize },
-    #[structopt(about = "Perform rounded division on two i8 numbers")]
+    #[structopt(about = "Perform rounded division on two signed 8-bit integers")]
     I8 { dividend: i8, divisor: i8 },
-    #[structopt(about = "Perform rounded division on two i16 numbers")]
+    #[structopt(about = "Perform rounded division on two signed 16-bit integers")]
     I16 { dividend: i16, divisor: i16 },
-    #[structopt(about = "Perform rounded division on two i32 numbers")]
+    #[structopt(about = "Perform rounded division on two signed 32-bit integers")]
     I32 { dividend: i32, divisor: i32 },
-    #[structopt(about = "Perform rounded division on two i64 numbers")]
+    #[structopt(about = "Perform rounded division on two signed 64-bit integers")]
     I64 { dividend: i64, divisor: i64 },
-    #[structopt(about = "Perform rounded division on two i128 numbers")]
+    #[structopt(about = "Perform rounded division on two signed 128-bit integers")]
     I128 { dividend: i128, divisor: i128 },
-    #[structopt(about = "Perform rounded division on two isize numbers")]
+    #[structopt(about = "Perform rounded division on two pointer-sized signed integers")]
     Isize { dividend: isize, divisor: isize },
 }
