@@ -4,7 +4,7 @@ use structopt::StructOpt;
 #[derive(Debug, StructOpt)]
 #[structopt(
     about = "Get rounded result of an integer division",
-    usage = "rounded-div <SUBCOMMAND> <dividend> <divisor>",
+    usage = "rounded-div <SUBCOMMAND> [dividend] [divisor]",
     rename_all = "kebab-case"
 )]
 pub enum Args {
