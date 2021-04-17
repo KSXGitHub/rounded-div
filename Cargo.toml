@@ -8,7 +8,7 @@ readme = "README.md"
 license = "MIT"
 documentation = "https://docs.rs/rounded-div"
 repository = "https://github.com/KSXGitHub/rounded-div"
-categories = []
+categories = ["no-std"]
 keywords = [
   "round",
   "integer",
@@ -31,11 +31,18 @@ doc = true
 name = "rounded-div"
 path = "cli/rounded-div.rs"
 doc = false
+required-features = ["cli"]
 
 [[bin]]
 name = "rounded-div-completions"
 path = "cli/rounded-div-completions.rs"
 doc = false
+required-features = ["cli"]
+
+[features]
+default = []
+std = []
+cli = ["std"]
 
 [dependencies]
 structopt = "^0.3.21"

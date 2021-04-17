@@ -1,3 +1,4 @@
+#![cfg(feature = "cli")]
 use rounded_div::program::{clap::Shell, structopt::StructOpt, Args};
 
 macro_rules! test_case {

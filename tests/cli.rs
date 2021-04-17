@@ -1,3 +1,4 @@
+#![cfg(feature = "cli")]
 use command_extra::CommandExtra;
 use pipe_trait::Pipe;
 use std::{
