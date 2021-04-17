@@ -18,6 +18,10 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-latest
+        features:
+          - ''
+          - --no-default-features
+          - --all-features
 
     steps:
       - uses: actions/checkout@v2
@@ -30,10 +34,10 @@ jobs:
           default: 'true'
 
       - name: Build
-        run: cargo build --locked
+        run: cargo build --locked ${{ matrix.features }}
 
       - name: Test
-        run: cargo test
+        run: cargo test ${{ matrix.features }}
 
       - name: Check formatting
         if: runner.os == 'Linux'
@@ -41,6 +45,8 @@ jobs:
 
       - name: Clippy check
         if: runner.os == 'Linux'
+        env:
+          FEATURES: ${{ matrix.features }}
         run: ./clippy.sh
 
   build_linux:
@@ -66,7 +72,7 @@ jobs:
           default: 'true'
 
       - name: Build
-        run: cargo build --target ${{ matrix.target }} --release
+        run: cargo build --target ${{ matrix.target }} --release --all-features
 
       - name: Strip all debug symbols
         run: strip --strip-all target/${{ matrix.target }}/release/rounded-div
@@ -99,7 +105,7 @@ jobs:
           default: 'true'
 
       - name: Build
-        run: cargo build --target ${{ matrix.target }} --release
+        run: cargo build --target ${{ matrix.target }} --release --all-features
 
       - name: Strip all debug symbols
         run: strip target/${{ matrix.target }}/release/rounded-div
@@ -133,7 +139,7 @@ jobs:
           default: 'true'
 
       - name: Build
-        run: cargo build --target ${{ matrix.target }} --release
+        run: cargo build --target ${{ matrix.target }} --release --all-features
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v2

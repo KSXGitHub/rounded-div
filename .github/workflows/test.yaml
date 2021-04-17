@@ -17,6 +17,10 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-latest
+        features:
+          - ''
+          - --no-default-features
+          - --all-features
 
     steps:
       - uses: actions/checkout@v2
@@ -43,12 +47,12 @@ jobs:
           default: 'true'
 
       - name: Build
-        run: cargo build --locked
+        run: cargo build --locked ${{ matrix.features }}
 
       - name: Test
         env:
           RUST_BACKTRACE: '1'
-        run: cargo test --no-fail-fast
+        run: cargo test --no-fail-fast ${{ matrix.features }}
 
   clippy_check:
     name: Clippy
@@ -61,6 +65,10 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
+        features:
+          - ''
+          - --no-default-features
+          - --all-features
 
     steps:
       - uses: actions/checkout@v2
@@ -92,7 +100,7 @@ jobs:
         with:
           name: Clippy Report (${{ hashFiles('rust-toolchain') }}, ${{ matrix.os }})
           token: ${{ secrets.GITHUB_TOKEN }}
-          args: --all-features --all-targets -- -D warnings
+          args: ${{ matrix.features }} --all-targets -- -D warnings
 
   fmt_check:
     name: Fmt
