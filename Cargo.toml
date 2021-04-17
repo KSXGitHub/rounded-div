@@ -25,3 +25,7 @@ structopt-utilities = "^0.0.8"
 
 [profile.release]
 opt-level = "s"
+
+[dev-dependencies]
+command-extra = "^1.0.0"
+pipe-trait = "^0.3.2"
