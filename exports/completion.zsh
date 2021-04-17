@@ -164,18 +164,18 @@ esac
 (( $+functions[_rounded-div_commands] )) ||
 _rounded-div_commands() {
     local commands; commands=(
-        "u8:Perform rounded division on two u8 numbers" \
-"u16:Perform rounded division on two u16 numbers" \
-"u32:Perform rounded division on two u32 numbers" \
-"u64:Perform rounded division on two u64 numbers" \
-"u128:Perform rounded division on two u128 numbers" \
-"usize:Perform rounded division on two usize numbers" \
-"i8:Perform rounded division on two i8 numbers" \
-"i16:Perform rounded division on two i16 numbers" \
-"i32:Perform rounded division on two i32 numbers" \
-"i64:Perform rounded division on two i64 numbers" \
-"i128:Perform rounded division on two i128 numbers" \
-"isize:Perform rounded division on two isize numbers" \
+        "u8:Perform rounded division on two unsigned 8-bit integers" \
+"u16:Perform rounded division on two unsigned 16-bit integers" \
+"u32:Perform rounded division on two unsigned 32-bit integers" \
+"u64:Perform rounded division on two unsigned 64-bit integers" \
+"u128:Perform rounded division on two unsigned 128-bit integers" \
+"usize:Perform rounded division on two pointer-sized unsigned integers" \
+"i8:Perform rounded division on two signed 8-bit integers" \
+"i16:Perform rounded division on two signed 16-bit integers" \
+"i32:Perform rounded division on two signed 32-bit integers" \
+"i64:Perform rounded division on two signed 64-bit integers" \
+"i128:Perform rounded division on two signed 128-bit integers" \
+"isize:Perform rounded division on two pointer-sized signed integers" \
 "help:Prints this message or the help of the given subcommand(s)" \
     )
     _describe -t commands 'rounded-div commands' commands "$@"
