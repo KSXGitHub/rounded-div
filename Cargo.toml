@@ -1,0 +1,27 @@
+[package]
+name = "rounded-div"
+version = "0.0.0"
+authors = ["khai96_ <hvksmr1996@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "rounded_div"
+path = "src/lib.rs"
+doc = true
+
+[[bin]]
+name = "rounded-div"
+path = "cli/rounded-div.rs"
+doc = false
+
+[[bin]]
+name = "rounded-div-completions"
+path = "cli/rounded-div-completions.rs"
+doc = false
+
+[dependencies]
+structopt = "^0.3.21"
+structopt-utilities = "^0.0.8"
+
+[profile.release]
+opt-level = "s"
