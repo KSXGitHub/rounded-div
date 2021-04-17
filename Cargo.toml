@@ -15,7 +15,6 @@ keywords = [
   "divide",
 ]
 include = [
-  "/cli",
   "/src",
   "/Cargo.toml",
   "/README.md",
@@ -26,24 +25,3 @@ include = [
 name = "rounded_div"
 path = "src/lib.rs"
 doc = true
-
-[[bin]]
-name = "rounded-div"
-path = "cli/rounded-div.rs"
-doc = false
-
-[[bin]]
-name = "rounded-div-completions"
-path = "cli/rounded-div-completions.rs"
-doc = false
-
-[dependencies]
-structopt = "^0.3.21"
-structopt-utilities = "^0.0.8"
-
-[profile.release]
-opt-level = "s"
-
-[dev-dependencies]
-command-extra = "^1.0.0"
-pipe-trait = "^0.3.2"
