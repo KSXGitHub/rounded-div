@@ -52,7 +52,9 @@ macro_rules! unsigned_div_fn {
         /// Get rounded result of an integer division.
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
-            (dividend + (divisor >> 1)) / divisor
+            let quotient = dividend / divisor;
+            let remainder = dividend % divisor;
+            quotient + (remainder << 1 >= divisor) as $data
         }
 
         aliases!($name -> $data);
@@ -60,14 +62,15 @@ macro_rules! unsigned_div_fn {
 }
 
 macro_rules! signed_div_fn {
-    ($name:ident -> $data:ident) => {
+    ($name:ident -> $data:ident do as $unsigned:ident) => {
         /// Get rounded result of an integer division.
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
+            let abs_value = self::$unsigned(dividend.unsigned_abs(), divisor.unsigned_abs());
             if dividend ^ divisor >= 0 {
-                (dividend + (divisor / 2)) / divisor
+                abs_value as $data
             } else {
-                (dividend - (divisor / 2)) / divisor
+                -(abs_value as $data)
             }
         }
 
@@ -82,9 +85,9 @@ unsigned_div_fn!(rounded_div_u64 -> u64);
 unsigned_div_fn!(rounded_div_u128 -> u128);
 unsigned_div_fn!(rounded_div_usize -> usize);
 
-signed_div_fn!(rounded_div_i8 -> i8);
-signed_div_fn!(rounded_div_i16 -> i16);
-signed_div_fn!(rounded_div_i32 -> i32);
-signed_div_fn!(rounded_div_i64 -> i64);
-signed_div_fn!(rounded_div_i128 -> i128);
-signed_div_fn!(rounded_div_isize -> isize);
+signed_div_fn!(rounded_div_i8 -> i8 do as u8);
+signed_div_fn!(rounded_div_i16 -> i16 do as u16);
+signed_div_fn!(rounded_div_i32 -> i32 do as u32);
+signed_div_fn!(rounded_div_i64 -> i64 do as u64);
+signed_div_fn!(rounded_div_i128 -> i128 do as u128);
+signed_div_fn!(rounded_div_isize -> isize do as usize);
