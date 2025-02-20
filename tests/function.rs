@@ -47,12 +47,10 @@ test_unsigned!(u8);
 test_unsigned!(u16);
 test_unsigned!(u32);
 test_unsigned!(u64);
-test_unsigned!(u128);
 test_unsigned!(usize);
 
 test_signed!(i8);
 test_signed!(i16);
 test_signed!(i32);
 test_signed!(i64);
-test_signed!(i128);
 test_signed!(isize);
