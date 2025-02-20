@@ -49,7 +49,7 @@ macro_rules! aliases {
 
 macro_rules! unsigned_div_fn {
     ($name:ident -> $data:ident) => {
-        #[doc = "Get rounded result of an integer division."]
+        /// Get rounded result of an integer division.
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
             (dividend + (divisor >> 1)) / divisor
@@ -61,7 +61,7 @@ macro_rules! unsigned_div_fn {
 
 macro_rules! signed_div_fn {
     ($name:ident -> $data:ident) => {
-        #[doc = "Get rounded result of an integer division."]
+        /// Get rounded result of an integer division.
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
             if dividend ^ divisor >= 0 {
