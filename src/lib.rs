@@ -67,6 +67,7 @@ macro_rules! signed_div_fn {
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
             match (dividend, divisor) {
+                ($data::MIN, -1) => panic!("attempt to divide with overflow"),
                 (0.., 0..) => self::$unsigned(dividend as $unsigned, divisor as $unsigned) as $data,
                 (..0, 0..) => -(self::$unsigned(-dividend as $unsigned, divisor as $unsigned) as $data),
                 (0.., ..0) => -(self::$unsigned(dividend as $unsigned, -divisor as $unsigned) as $data),
