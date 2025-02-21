@@ -4,6 +4,12 @@
 1. `dividend / divisor` has the same sign as `dividend XOR divisor`.
 2. `dividend % divisor` has the same sign as `dividend`.
 
+> [!NOTE]
+> Math does not have a notation for integer division so we'll use `floor(a/b)` (i.e. $\lfloor \frac a b \rfloor$) to mean integer division.
+
+> [!NOTE]
+> GitHub's rendering engine is unable to render percentage sign in latex in markdown correctly, so we'll use `rem(a, b)` to means getting the remainder of an integer division.
+
 ## Both `dividend` and `divisor` are non-negative
 
 Let:
