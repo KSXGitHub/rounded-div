@@ -66,11 +66,11 @@ macro_rules! signed_div_fn {
         /// Get rounded result of an integer division.
         #[inline]
         pub const fn $name(dividend: $data, divisor: $data) -> $data {
-            let abs_value = self::$unsigned(dividend.unsigned_abs(), divisor.unsigned_abs());
-            if dividend ^ divisor >= 0 {
-                abs_value as $data
-            } else {
-                -(abs_value as $data)
+            match (dividend, divisor) {
+                (0.., 0..) => self::$unsigned(dividend as $unsigned, divisor as $unsigned) as $data,
+                (..0, 0..) => -(self::$unsigned(-dividend as $unsigned, divisor as $unsigned) as $data),
+                (0.., ..0) => -(self::$unsigned(dividend as $unsigned, -divisor as $unsigned) as $data),
+                (..0, ..0) => self::$unsigned(-dividend as $unsigned, -divisor as $unsigned) as $data,
             }
         }
 
