@@ -3,3 +3,4 @@ tmp
 *.tmp
 tmp.*
 *.mypy_cache
+/.vscode
