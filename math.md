@@ -10,7 +10,7 @@ Let:
 1. $a = dividend ≥ 0$
 2. $b = divisor > 0$
 3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {divisor} \rfloor > 0$
-4. $r = a \% b = dividend \% divisor = remainder > 0$
+4. $r = rem(a, b) = rem(dividend, divisor) = remainder > 0$
 
 We have:
 
@@ -39,7 +39,7 @@ Let:
 1. $a = -dividend ≥ 0$
 2. $b = divisor > 0$
 3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {-dividend} {divisor} \rfloor > 0$
-4. $r = a \% b = (-dividend) \% divisor = -remainder > 0$ (observation 2)
+4. $r = rem(a, b) = rem(-dividend, divisor) = -remainder > 0$ (observation 2)
 
 We have:
 
@@ -67,7 +67,7 @@ Let:
 1. $a = dividend ≥ 0$
 2. $b = -divisor > 0$
 3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {-divisor} \rfloor > 0$
-4. $r = a \% b = dividend \% (-divisor) = remainder > 0$ (observation 2)
+4. $r = rem(a, b) = rem(dividend, -divisor) = remainder > 0$ (observation 2)
 
 We have:
 
@@ -95,7 +95,7 @@ Let:
 1. $a = -dividend ≥ 0$
 2. $b = -divisor > 0$
 3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {divisor} \rfloor > 0$
-4. $r = a \% b = (-dividend) \% (-divisor) = -remainder > 0$ (observation 2)
+4. $r = rem(a, b) = rem(-dividend, -divisor) = -remainder > 0$ (observation 2)
 
 We have:
 
