@@ -4,7 +4,7 @@
 1. `dividend / divisor` has the same sign as `dividend XOR divisor`.
 2. `dividend % divisor` has the same sign as `dividend`.
 
-**Case 1:** Both `dividend` and `divisor` are non-negative.
+## Both `dividend` and `divisor` are non-negative
 
 Let:
 1. $a = dividend ≥ 0$
@@ -33,7 +33,7 @@ $$
 2 \times remainder ≥ divisor
 $$
 
-**Case 2:** `dividend` is negative, `divisor` is not.
+## `dividend` is negative, `divisor` is not
 
 Let:
 1. $a = -dividend ≥ 0$
@@ -61,7 +61,7 @@ $$
 2 \times (-remainder) ≥ divisor
 $$
 
-**Case 3:** `divisor` is negative, `dividend` is not.
+## `divisor` is negative, `dividend` is not
 
 Let:
 1. $a = dividend ≥ 0$
@@ -89,7 +89,7 @@ $$
 2 \times remainder ≥ -divisor
 $$
 
-**Case 4:** Both `dividend` and `divisor` are negative:
+## Both `dividend` and `divisor` are negative
 
 Let:
 1. $a = -dividend ≥ 0$
