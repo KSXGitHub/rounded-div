@@ -5,7 +5,7 @@
 2. `dividend % divisor` has the same sign as `dividend`.
 
 > [!NOTE]
-> Math does not have a notation for integer division so we'll use `floor(a/b)` (i.e. $\lfloor \frac a b \rfloor$) to mean integer division.
+> Math does not have a notation for integer division so we'll use `floor(a/b)` (i.e. $⌊ \frac a b ⌋$) to mean integer division.
 
 > [!NOTE]
 > GitHub's rendering engine is unable to render percentage sign in latex in markdown correctly, so we'll use `rem(a, b)` to means getting the remainder of an integer division.
@@ -15,7 +15,7 @@
 Let:
 1. $a = dividend ≥ 0$
 2. $b = divisor > 0$
-3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {divisor} \rfloor ≥ 0$
+3. $q = ⌊ \frac a b ⌋ = ⌊ \frac {dividend} {divisor} ⌋ ≥ 0$
 4. $r = rem(a, b) = rem(dividend, divisor) = remainder ≥ 0$
 
 We have:
@@ -44,7 +44,7 @@ $$
 Let:
 1. $a = -dividend ≥ 0$
 2. $b = divisor > 0$
-3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {-dividend} {divisor} \rfloor ≥ 0$
+3. $q = ⌊ \frac a b ⌋ = ⌊ \frac {-dividend} {divisor} ⌋ ≥ 0$
 4. $r = rem(a, b) = rem(-dividend, divisor) = -remainder ≥ 0$ (observation 2)
 
 We have:
@@ -72,7 +72,7 @@ $$
 Let:
 1. $a = dividend ≥ 0$
 2. $b = -divisor > 0$
-3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {-divisor} \rfloor ≥ 0$
+3. $q = ⌊ \frac a b ⌋ = ⌊ \frac {dividend} {-divisor} ⌋ ≥ 0$
 4. $r = rem(a, b) = rem(dividend, -divisor) = remainder ≥ 0$ (observation 2)
 
 We have:
@@ -100,7 +100,7 @@ $$
 Let:
 1. $a = -dividend ≥ 0$
 2. $b = -divisor > 0$
-3. $q = \lfloor \frac a b \rfloor = \lfloor \frac {dividend} {divisor} \rfloor ≥ 0$
+3. $q = ⌊ \frac a b ⌋ = ⌊ \frac {dividend} {divisor} ⌋ ≥ 0$
 4. $r = rem(a, b) = rem(-dividend, -divisor) = -remainder ≥ 0$ (observation 2)
 
 We have:
