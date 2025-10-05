@@ -96,8 +96,8 @@ macro_rules! signed_div_fn {
                 ($data::MIN, 1..) => -(self::$unsigned(NEG_OF_MIN, divisor as $unsigned) as $data),
                 ($data::MIN, ..=-1) => self::$unsigned(NEG_OF_MIN, -divisor as $unsigned) as $data,
 
-                (HALF_MIN_PLUS_1..=NEG_HALF_MIN_MINUS_1, $data::MIN) => 0,// MIN is even, so x/MIN where x.abs() < MIN/2 should be less than 0.5
-                (..=HALF_MIN, $data::MIN) => 1,// MIN is even so x/MIN where x <= MIN/2 should be greater than 0.5
+                (HALF_MIN_PLUS_1..=NEG_HALF_MIN_MINUS_1, $data::MIN) => 0, // MIN is even, so x/MIN where x.abs() < MIN/2 should be less than 0.5
+                (..=HALF_MIN, $data::MIN) => 1, // MIN is even so x/MIN where x <= MIN/2 should be greater than 0.5
                 (NEG_HALF_MIN.., $data::MIN) => -1, // MIN is even so x/MIN where x >= -MIN/2 should be less than -0.5
 
                 (NEG_HALF_MAX..=HALF_MAX, $data::MAX) => 0, // MAX is odd, so x/MAX where x.abs() <= MAX/2 should be less than 0.5
