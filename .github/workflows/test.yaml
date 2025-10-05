@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v4
         timeout-minutes: 1
         continue-on-error: true
         if: matrix.os != 'macos-latest' # Cache causes errors on macOS
@@ -66,7 +66,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v4
         timeout-minutes: 1
         continue-on-error: true
         if: matrix.os != 'macos-latest' # Cache causes errors on macOS
@@ -80,12 +80,12 @@ jobs:
             ${{ github.job }}-${{ runner.os }}-${{ hashFiles('rust-toolchain') }}-${{ hashFiles('**/Cargo.lock') }}
             ${{ github.job }}-${{ runner.os }}-${{ hashFiles('rust-toolchain') }}-
 
-      - uses: actions-rs/toolchain@v1.0.7
-        with:
-          profile: minimal
-          components: clippy
-          override: 'true'
-          default: 'true'
+      - name: Install Rust
+        shell: bash
+        run: |
+          installer=$(mktemp -d)/install-rustup
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > $installer
+          bash $installer --default-toolchain $(cat rust-toolchain) -y
 
       - name: Use clippy to lint code
         uses: actions-rs/clippy-check@v1
@@ -107,12 +107,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions-rs/toolchain@v1.0.7
-        with:
-          profile: minimal
-          components: rustfmt
-          override: 'true'
-          default: 'true'
+      - name: Install Rust
+        shell: bash
+        run: |
+          installer=$(mktemp -d)/install-rustup
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > $installer
+          bash $installer --default-toolchain $(cat rust-toolchain) -y
 
       - name: Check code formatting
         run: cargo fmt -- --check
