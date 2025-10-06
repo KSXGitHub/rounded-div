@@ -1,9 +1,18 @@
 #[cfg(test)]
 mod i8 {
+    use decimal_rs::Decimal;
+
     fn slow_rounded_div(dividend: i8, divisor: i8) -> i8 {
-        let dividend = dividend as f64;
-        let divisor = divisor as f64;
-        (dividend / divisor).round() as i8
+        let dividend: Decimal = dividend.into();
+        let divisor: Decimal = divisor.into();
+        let (int_val, scale, negative) = (dividend / divisor).round(0).into_parts();
+        assert_eq!(scale, 0);
+        let int_val = int_val as i128;
+        let factor: i128 = match negative {
+            true => -1,
+            false => 1,
+        };
+        (int_val * factor) as i8
     }
 
     #[test]
