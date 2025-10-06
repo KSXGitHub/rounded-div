@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "rounded-div"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "decimal-rs",
 ]
