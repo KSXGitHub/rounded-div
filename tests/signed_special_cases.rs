@@ -1,23 +1,12 @@
 /// Run test cases for a signed integer type.
-///
-/// **NOTE:** Due to the limitation of [`decimal_rs`], this macro cannot run on `i128`.
 macro_rules! cases {
     ($name:ident) => {
         #[cfg(test)]
         mod $name {
-            use decimal_rs::Decimal;
+            use num::rational::Ratio;
 
             fn slow(dividend: $name, divisor: $name) -> $name {
-                let dividend: Decimal = dividend.into();
-                let divisor: Decimal = divisor.into();
-                let (int_val, scale, negative) = (dividend / divisor).round(0).into_parts();
-                assert_eq!(scale, 0);
-                let int_val = int_val as i128;
-                let factor: i128 = match negative {
-                    true => -1,
-                    false => 1,
-                };
-                (int_val * factor) as $name
+                Ratio::new(dividend, divisor).round().to_integer()
             }
 
             #[test]
@@ -233,4 +222,5 @@ cases!(i8);
 cases!(i16);
 cases!(i32);
 cases!(i64);
+cases!(i128);
 cases!(isize);
