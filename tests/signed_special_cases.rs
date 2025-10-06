@@ -3,7 +3,7 @@ macro_rules! cases {
     ($name:ident) => {
         #[cfg(test)]
         mod $name {
-            use num::rational::Ratio;
+            use num_rational::Ratio;
 
             fn slow(dividend: $name, divisor: $name) -> $name {
                 Ratio::new(dividend, divisor).round().to_integer()

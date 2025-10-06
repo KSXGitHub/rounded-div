@@ -31,4 +31,4 @@ path = "src/lib.rs"
 doc = true
 
 [dev-dependencies]
-num = { version = "0.4.3", default-features = false }
+num-rational = { version = "0.4.2", default-features = false }
